@@ -34,3 +34,27 @@ while True:
     with open("data.txt") as file:
         print(file.read())
         time.sleep(10)
+
+import time
+while True:
+    print("Hello world")
+    time.sleep(5)
+
+# this is all fine and dandy but what if the file is deleted, will the script run?
+# No. We would get an error and the script would stop completely.
+# to solve this we can use the OS module.
+
+import os # not among the builtins, its actually a bit different.
+# if you type in sys.prefix, copy the path, and type start [path] in terminal you will navigate to it. Go to lib, the python version you are using and you will find what are called "Standard Python Modules". These are all written in python code. DO NOT CHANGE ANYTHING IN HERE.
+
+# if you use dir(os) you'll discover a method called path in Os. let's use it.
+
+import time
+
+while True:
+    if os.path.exists("data.txt"): # check to see if the file even exist first.
+        with open("data.txt") as file:
+            print(file.read())
+    else:
+        print("File does not exist.")
+    time.sleep(5)
